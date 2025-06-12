@@ -96,12 +96,12 @@
           document.getElementById("cups").innerHTML = cups
         }
 
-        document.getElementById("purchasing").addEventListener("change", function() {
-          purchasing = document.getElementById("purchasing").innerHTML
-          document.getElementById("lemonjuiceamount").innerHTML = purchasing
-          document.getElementById("wateramount").innerHTML = purchasing
-          document.getElementById("sugaramount").innerHTML = purchasing
-          document.getElementById("cupsamount").innerHTML = purchasing
+        document.getElementById("purchasing").addEventListener("input", function() {
+        purchasing = parseInt(this.value);
+        document.getElementById("lemonjuiceamount").innerHTML = purchasing;
+        document.getElementById("wateramount").innerHTML = purchasing;
+        document.getElementById("sugaramount").innerHTML = purchasing;
+        document.getElementById("cupsamount").innerHTML = purchasing;
         })
       }
     </script>
