@@ -28,16 +28,16 @@
     <p>
       Lemon Juice: <span id="lemonjuice">20</span> gallons | Water: <span id="water">80</span> gallons | Sugar: <span id="sugar"></span> | Cups: <span id="cups">20</span>
     </p>
-    <button onclick="buySupplies(0)">
+    <button onclick="buySupplies(0)" class="colorbutton">
       Lemonjuice [$<span id="lemonjuiceprice">0.25</span>]
     </button>
-    <button onclick="buySupplies(1)">
+    <button onclick="buySupplies(1)" class="colorbutton">
       Water [$<span id="waterprice">0.75</span>]
     </button>
-    <button onclick="buySupplies(2)">
+    <button onclick="buySupplies(2)" class="colorbutton">
       Sugar [$<span id="sugarprice">0.75</span>]
     </button>
-    <button onclick="buySupplies(3)">
+    <button onclick="buySupplies(3)" class="colorbutton">
       Cups [$<span id="cupsprice">0.25</span>]
     </button>
     <script>
@@ -53,7 +53,7 @@
       var cupsprice = 0.25
 
       function sellLemonade() {
-        if (lemons >= 1 && water >= 4 && cups >= 1 && sugar >= 1) {
+        if (lemonjuice >= 1 && water >= 4 && cups >= 1 && sugar >= 1) {
           money = money + price
           lemonjuice = lemonjuice - 1
           water = water - 4
