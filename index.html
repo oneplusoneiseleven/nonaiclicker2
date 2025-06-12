@@ -2,16 +2,32 @@
 <html>
   <head>
     <title>
-      Clicker Game 2
+      Lemonade Game
     </title>
+    <style>
+      body {
+        background-color: midnightblue;
+        color: white;
+      }
+      .colorbutton {
+        background-color: black;
+        color: white;
+      }
+    </style>
   </head>
   <body>
+    <p>
+      Money: $<span id="money">0</span>
+    </p>
+    <button onclick="sellLemonade()" class="colorbutton">
+      Sell Lemonade [$<span id="price">1</span>]
+    </button>
     <script>
-      const paragraphs = ["JIM", "BLIM", "TIM"];
-      for (let p of paragraphs) {
-        const paragraph = document.createElement("p");
-        paragraph.textContent = p;
-        document.body.appendChild(paragraph);
+      var money = 0
+      var price = 1
+
+      function sellLemonade {
+        money = money + price
       }
     </script>
   </body>
