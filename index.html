@@ -71,18 +71,26 @@
         if (supplyid === 0 && money >= lemonjuiceprice) {
           money = money - lemonjuiceprice
           lemonjuice = lemonjuice + 1
+          document.getElementById("money").innerHTML = money
+          document.getElementById("lemonjuice").innerHTML = lemonjuice
         }
         if (supplyid === 1 && money >= waterprice) {
           money = money - waterprice
           water = water + 1
+          document.getElementById("money").innerHTML = money
+          document.getElementById("water").innerHTML = water
         }
         if (supplyid === 2 && money >= sugarprice) {
           money = money - sugarprice
           sugar = sugar + 1
+          document.getElementById("money").innerHTML = money
+          document.getElementById("sugar").innerHTML = sugar
         }
         if (supplyid === 3 && money >= cupsprice) {
           money = money - cupsprice
           cups = cups + 1
+          document.getElementById("money").innerHTML = money
+          document.getElementById("cups").innerHTML = cups
         }
       }
     </script>
