@@ -29,19 +29,19 @@
       Lemon Juice: <span id="lemonjuice">20</span> gallons | Water: <span id="water">80</span> gallons | Sugar: <span id="sugar"></span> | Cups: <span id="cups">20</span>
     </p>
     <button onclick="buySupplies(0)" class="colorbutton">
-      Lemonjuice [$<span id="lemonjuiceprice">0.25</span>]
+      <span id="lemonjuiceamount">1</span>x Lemonjuice [$<span id="lemonjuiceprice">0.25</span>]
     </button>
     <button onclick="buySupplies(1)" class="colorbutton">
-      Water [$<span id="waterprice">0.75</span>]
+      <span id="wateramount">1</span>x Water [$<span id="waterprice">0.75</span>]
     </button>
     <button onclick="buySupplies(2)" class="colorbutton">
-      Sugar [$<span id="sugarprice">0.75</span>]
+      <span id="sugaramount">1</span>x Sugar [$<span id="sugarprice">0.75</span>]
     </button>
     <button onclick="buySupplies(3)" class="colorbutton">
-      Cups [$<span id="cupsprice">0.25</span>]
+      <span id="cupsamount">1</span>x Cups [$<span id="cupsprice">0.25</span>]
     </button>
     PURCHASE AT A TIME:
-    <input>
+    <input type="number" step=1 id="purchasing" min=1>1
     <script>
       var money = 0
       var price = 5
@@ -53,6 +53,7 @@
       var sugarprice = 0.75
       var cups = 20
       var cupsprice = 0.25
+      var purchasing = 1
 
       function sellLemonade() {
         if (lemonjuice >= 1 && water >= 4 && cups >= 1 && sugar >= 1) {
@@ -70,30 +71,38 @@
       }
 
       function buySupplies(supplyid) {
-        if (supplyid === 0 && money >= lemonjuiceprice) {
-          money = money - lemonjuiceprice
-          lemonjuice = lemonjuice + 1
+        if (supplyid === 0 && money >= lemonjuiceprice*purchasing) {
+          money = money - lemonjuiceprice*purchasing
+          lemonjuice = lemonjuice + purchasing
           document.getElementById("money").innerHTML = money
           document.getElementById("lemonjuice").innerHTML = lemonjuice
         }
-        if (supplyid === 1 && money >= waterprice) {
-          money = money - waterprice
-          water = water + 1
+        if (supplyid === 1 && money >= waterprice*purchasing) {
+          money = money - waterprice*purchasing
+          water = water + purchasing
           document.getElementById("money").innerHTML = money
           document.getElementById("water").innerHTML = water
         }
-        if (supplyid === 2 && money >= sugarprice) {
-          money = money - sugarprice
-          sugar = sugar + 1
+        if (supplyid === 2 && money >= sugarprice*purchasing) {
+          money = money - sugarprice*purchasing
+          sugar = sugar + purchasing
           document.getElementById("money").innerHTML = money
           document.getElementById("sugar").innerHTML = sugar
         }
-        if (supplyid === 3 && money >= cupsprice) {
-          money = money - cupsprice
-          cups = cups + 1
+        if (supplyid === 3 && money >= cupsprice*purchasing) {
+          money = money - cupsprice*purchasing
+          cups = cups + purchasing
           document.getElementById("money").innerHTML = money
           document.getElementById("cups").innerHTML = cups
         }
+
+        document.getElementById("purchasing").addEventListener("change", function() {
+          purchasing = document.getElementById("purchasing").innerHTML
+          document.getElementById("lemonjuiceamount").innerHTML = purchasing
+          document.getElementById("wateramount").innerHTML = purchasing
+          document.getElementById("sugaramount").innerHTML = purchasing
+          document.getElementById("cupsamount").innerHTML = purchasing
+        })
       }
     </script>
   </body>
